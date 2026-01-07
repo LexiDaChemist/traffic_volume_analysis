@@ -12,7 +12,7 @@ summary statistics, and generate visualizations to support traffic trend
 interpretation.
 
 **Dataset:** Interstate Traffic Dataset (US)  
-**Source:** :contentReference[oaicite:0]{index=0}  
+**Source:** Kaggle – Interstate Traffic Dataset (US)  
 **Creator:** Ansh Tanwar  
 All rights belong to the original dataset creator. The dataset is used for
 educational and analytical purposes.
