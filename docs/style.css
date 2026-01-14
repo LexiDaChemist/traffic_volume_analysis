@@ -1,1 +1,25 @@
+:root{
+  /* Core backgrounds */
+  --bg:#0f141b;          /* softer than pure dark */
+  --panel:#151b23;
+  --panel2:#1b2230;
+
+  /* Text */
+  --text:#e6eaf0;
+  --muted:#a3adba;
+
+  /* Accents (muted, not neon) */
+  --brand:#7aa2f7;       /* calm blue */
+  --brand2:#9d7cd8;     /* soft violet */
+  --ok:#73daca;         /* gentle teal */
+  --warn:#e0af68;       /* warm amber */
+
+  /* Effects */
+  --ring: 0 0 0 3px rgba(122,162,247,.22);
+  --shadow: 0 8px 24px rgba(0,0,0,.28);
+
+  /* Layout */
+  --radius: 18px;
+  --max: 1080px;
+}
 
