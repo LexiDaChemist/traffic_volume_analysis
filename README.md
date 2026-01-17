@@ -55,7 +55,7 @@ on interstate traffic demand.
 
 ### 2. Weekday vs Weekend Traffic Behavior
 
-![Weekday vs Weekend Traffic Volume](reports/weekday_vs_weekend.jpg)
+![Weekday-vs-Weekend Traffic Volume](reports/weekday-vs-weekend.jpg)
 
 Line-curve comparisons highlight clear differences between weekday and weekend travel.
 
