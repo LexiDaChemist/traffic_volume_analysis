@@ -8,7 +8,8 @@
   <meta name="description"
         content="Academic-style traffic volume analysis using Java + Maven. Temporal patterns, weekday/weekend behavior, and weather context." />
 
-  <link rel="stylesheet" href="styles.css" />
+  <!-- Match your repo: docs/style.css -->
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
@@ -21,11 +22,26 @@
       </div>
 
       <div class="links">
-        <a class="pill" href="#overview">Project Overview</a>
-        <a class="pill" href="#explain">Explanation of Data</a>
-        <a class="pill" href="#applications">Real-World Applications</a>
-        <a class="pill" href="#discussion">Discussion</a>
+        <!-- Removed: Project Overview -->
+        <!-- Removed: Explanation of Data -->
+
+        <!-- These now toggle hideable content sections -->
+        <button class="pill toggle" type="button" data-target="applications-panel" aria-expanded="false">
+          Real-World Applications
+        </button>
+        <button class="pill toggle" type="button" data-target="discussion-panel" aria-expanded="false">
+          Discussion
+        </button>
+
         <a class="pill" href="#references">References</a>
+
+        <!-- Move GitHub to upper right after References -->
+        <a class="pill github"
+           href="https://github.com/LexiDaChemist/traffic-volume-analysis"
+           target="_blank"
+           rel="noopener noreferrer">
+          View on GitHub
+        </a>
       </div>
     </div>
   </nav>
@@ -36,101 +52,120 @@
       <div class="kicker">Academic Portfolio · Java · Maven · JFreeChart</div>
       <h1>Interstate Traffic Volume Analysis</h1>
       <p class="sub">
-        A research-inspired analysis of hourly traffic volume using the
-        <em>Metro Interstate Traffic Volume</em> dataset, with visual summaries of time-of-day behavior,
+        A research-inspired analysis of hourly interstate traffic volume using the
+        <em>Metro Interstate Traffic Volume</em> dataset. Figures summarize time-of-day behavior,
         weekday/weekend differences, and weather context.
       </p>
 
       <div class="cta">
-        <a class="btn primary" href="#explain">View Figures</a>
-        <a class="btn" href="#overview">Read Overview</a>
-        <a class="btn github"
-           href="https://github.com/LexiDaChemist/traffic-volume-analysis"
-           target="_blank"
-           rel="noopener noreferrer">
-          View on GitHub
-        </a>
+        <!-- Removed: Read Overview -->
+        <a class="btn primary" href="#figures">View Figures</a>
+        <a class="btn" href="#references">References</a>
       </div>
     </header>
 
-    <!-- Explanation of Data -->
-    <section class="section" id="explain">
-      <h2>Explanation of Data</h2>
+    <!-- FIGURES (kept, reminder: clickable images) -->
+    <section class="section" id="figures">
+      <h2>Figures</h2>
       <p class="lead">
-        The figures below summarize the main results. Clicking any image opens the
-        full-resolution figure in a new tab.
+        Click any figure to open the full-resolution image in a new tab.
       </p>
 
       <div class="figgrid">
-        <div class="figgrid">
+        <figure class="figure">
+          <a href="images/hourly-curves.jpg" target="_blank" rel="noopener">
+            <img src="images/hourly-curves.jpg"
+                 alt="Hourly traffic volume curves comparing weekday vs weekend" />
+          </a>
+          <figcaption>
+            <strong>Figure 1.</strong> Hourly traffic volume curves (weekday vs weekend).
+            <span class="muted">
+              Weekdays show commute-shaped peaks; weekends are flatter and often shifted later.
+            </span>
+          </figcaption>
+        </figure>
 
-  <!-- Figure 1 -->
-  <figure class="figure">
-    <a href="images/hourly-curves.jpg" target="_blank" rel="noopener">
-      <img src="images/hourly-curves.jpg"
-           alt="Hourly traffic volume curves comparing weekday vs weekend" />
-    </a>
-    <figcaption>
-      <strong>Figure 1.</strong> Hourly traffic volume curves (weekday vs weekend).
-      <span class="muted">
-        Weekdays show pronounced commute-related peaks, while weekends exhibit flatter,
-        later-shifted traffic patterns.
-      </span>
-    </figcaption>
-  </figure>
+        <figure class="figure">
+          <a href="images/traffic-volume.jpg" target="_blank" rel="noopener">
+            <img src="images/traffic-volume.jpg"
+                 alt="Average traffic volume by hour of day" />
+          </a>
+          <figcaption>
+            <strong>Figure 2.</strong> Average traffic volume by hour of day.
+            <span class="muted">
+              A corridor “daily rhythm” highlighting consistent peak-hour demand windows.
+            </span>
+          </figcaption>
+        </figure>
 
-  <!-- Figure 2 -->
-  <figure class="figure">
-    <a href="images/traffic-volume.jpg" target="_blank" rel="noopener">
-      <img src="images/traffic-volume.jpg"
-           alt="Average traffic volume by hour of day" />
-    </a>
-    <figcaption>
-      <strong>Figure 2.</strong> Average traffic volume by hour of day.
-      <span class="muted">
-        This figure highlights the daily rhythm of traffic demand and identifies
-        consistent peak-hour windows.
-      </span>
-    </figcaption>
-  </figure>
+        <figure class="figure">
+          <a href="images/weather-impact.jpg" target="_blank" rel="noopener">
+            <img src="images/weather-impact.jpg"
+                 alt="Average traffic volume by weather condition" />
+          </a>
+          <figcaption>
+            <strong>Figure 3.</strong> Average traffic volume by weather condition.
+            <span class="muted">
+              Compares average demand across weather categories to see whether demand shifts with conditions.
+            </span>
+          </figcaption>
+        </figure>
 
-  <!-- Figure 3 -->
-  <figure class="figure">
-    <a href="images/weather-impact.jpg" target="_blank" rel="noopener">
-      <img src="images/weather-impact.jpg"
-           alt="Average traffic volume by weather condition" />
-    </a>
-    <figcaption>
-      <strong>Figure 3.</strong> Average traffic volume by weather condition.
-      <span class="muted">
-        Weather context illustrates how traffic demand varies—or remains stable—under
-        different environmental conditions.
-      </span>
-    </figcaption>
-  </figure>
+        <figure class="figure">
+          <a href="images/weekday_vs_weekend.jpg" target="_blank" rel="noopener">
+            <img src="images/weekday_vs_weekend.jpg"
+                 alt="Weekday versus weekend average traffic volume" />
+          </a>
+          <figcaption>
+            <strong>Figure 4.</strong> Weekday vs weekend average traffic volume.
+            <span class="muted">
+              A compact comparison showing how structured schedules influence weekday demand.
+            </span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
 
-  <!-- Figure 4 -->
-  <figure class="figure">
-    <a href="images/weekday_vs_weekend.jpg" target="_blank" rel="noopener">
-      <img src="images/weekday_vs_weekend.jpg"
-           alt="Weekday versus weekend average traffic volume" />
-    </a>
-    <figcaption>
-      <strong>Figure 4.</strong> Weekday vs weekend average traffic volume.
-      <span class="muted">
-        A high-level comparison demonstrating the influence of structured work schedules
-        on weekday traffic demand.
-      </span>
-    </figcaption>
-  </figure>
+    <!-- Hideable content: Real-World Applications -->
+    <section class="section" id="applications">
+      <h2>Real-World Applications</h2>
 
-</div>
+      <div class="panel collapsible" id="applications-panel" hidden>
+        <p>
+          Think of this highway like a city’s “pulse.” Peaks are the predictable moments when the system is under the most
+          strain—similar to how a doctor watches heart-rate spikes to understand stress. Knowing when peaks happen helps
+          transportation teams plan lane use, maintenance windows, and staffing. Weather patterns add context: agencies can
+          anticipate when demand stays high but driving risk increases, which supports better messaging and response planning.
+          In practice, these patterns feed forecasting baselines (“what’s normal for this hour and day?”) and help prioritize
+          upgrades where recurring congestion suggests chronic infrastructure pressure.
+        </p>
+      </div>
 
+      <div class="note">
+        Tip: Use the top buttons to show/hide the content for a cleaner reading experience.
+      </div>
+    </section>
+
+    <!-- Hideable content: Discussion -->
+    <section class="section" id="discussion">
+      <h2>Discussion</h2>
+
+      <div class="panel collapsible" id="discussion-panel" hidden>
+        <p>
+          Across the figures, traffic volume follows a strong time structure: weekdays tend to exhibit sharper peaks aligned
+          with commuting, while weekends show flatter demand that often shifts later. Weather contributes additional signal,
+          but time-of-day and day-type effects are typically larger in magnitude. This project emphasizes interpretability by
+          using straightforward aggregation and visual evidence rather than “black box” results. These findings are best read
+          as corridor-specific associations, but they offer a practical foundation for forecasting baselines and planning
+          decisions that depend on predictable recurring demand.
+        </p>
+      </div>
     </section>
 
     <!-- References -->
     <section class="section" id="references">
-      <h2>Reference</h2>
+      <h2>References</h2>
+
       <div class="panel">
         <ol class="refs">
           <li>
@@ -141,13 +176,43 @@
             </a>
           </li>
           <li>
-            Tanwar, A. (Kaggle). <em>Metro Interstate Traffic Volume</em> dataset distribution.
+            Tanwar, A. (Kaggle). <em>Metro Interstate Traffic Volume</em> dataset distribution used for access.
             <a href="https://www.kaggle.com/" target="_blank" rel="noopener noreferrer">Kaggle</a>
+            <span class="muted">(Replace with the exact Kaggle dataset page link you used.)</span>
           </li>
         </ol>
       </div>
+
+      <footer class="footer">
+        <div class="muted">© <span id="year"></span> LexiDaChemist · Traffic Volume Analysis</div>
+      </footer>
     </section>
   </main>
+
+  <script>
+    // Footer year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Collapsible panels controlled by top buttons
+    const toggles = document.querySelectorAll(".toggle[data-target]");
+    toggles.forEach(btn => {
+      btn.addEventListener("click", () => {
+        const id = btn.getAttribute("data-target");
+        const panel = document.getElementById(id);
+        if (!panel) return;
+
+        const isHidden = panel.hasAttribute("hidden");
+        if (isHidden) {
+          panel.removeAttribute("hidden");
+          btn.setAttribute("aria-expanded", "true");
+          // Optional: scroll into view when opened
+          panel.scrollIntoView({ behavior: "smooth", block: "start" });
+        } else {
+          panel.setAttribute("hidden", "");
+          btn.setAttribute("aria-expanded", "false");
+        }
+      });
+    });
+  </script>
 </body>
 </html>
-
