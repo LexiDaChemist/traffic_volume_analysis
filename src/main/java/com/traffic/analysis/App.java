@@ -1,0 +1,56 @@
+package com.traffic.analysis;
+
+import java.nio.file.Path;
+import java.util.List;
+import java.util.Map;
+
+public class App {
+    public static void main(String[] args) throws Exception {
+        Path csv = Path.of("C:/Users/merce/Downloads/traffic_volume_analysis/Metro_Interstate_Traffic_Volume.csv");
+
+        List<TrafficRecord> rows = TrafficDataLoader.load(csv);
+        System.out.println("Loaded rows: " + rows.size());
+        
+        var curves = TrafficAnalysis.averageVolumeByHourWeekdayVsWeekend(rows);
+        TrafficCharts.showHourlyCurvesWeekdayVsWeekend(curves.get("Weekday"), curves.get("Weekend"));
+        
+        var peakOverall = TrafficAnalysis.peakHourByAverage(rows);
+        var peakWeekday = TrafficAnalysis.peakHourWeekday(rows);
+        var peakWeekend = TrafficAnalysis.peakHourWeekend(rows);
+
+        System.out.printf("Peak hour (overall):  %02d:00  avg=%.0f%n", peakOverall.hour(), peakOverall.averageVolume());
+        System.out.printf("Peak hour (weekday):  %02d:00  avg=%.0f%n", peakWeekday.hour(), peakWeekday.averageVolume());
+        System.out.printf("Peak hour (weekend):  %02d:00  avg=%.0f%n", peakWeekend.hour(), peakWeekend.averageVolume());
+
+        var avgByHour = TrafficAnalysis.averageVolumeByHour(rows);
+        TrafficCharts.showAvgVolumeByHour(avgByHour, peakOverall.hour(), peakOverall.averageVolume());
+        
+        var avgByWeather = TrafficAnalysis.averageVolumeByWeatherMain(rows);
+
+     // Print sorted by highest avg volume
+     System.out.println("\nAverage Volume by weather_main (highest to lowest):");
+     avgByWeather.entrySet().stream()
+             .sorted((a, b) -> Double.compare(b.getValue(), a.getValue()))
+             .forEach(e -> System.out.printf("  %-12s  %.0f%n", e.getKey(), e.getValue()));
+
+     TrafficCharts.showAvgVolumeByWeatherMain(avgByWeather);
+     
+     Double clear = avgByWeather.get("Clear");
+     if (clear != null) {
+         System.out.println("\nRelative to Clear (percent change):");
+         avgByWeather.entrySet().stream()
+                 .sorted((a, b) -> Double.compare(b.getValue(), a.getValue()))
+                 .forEach(e -> {
+                     double pct = 100.0 * (e.getValue() - clear) / clear;
+                     System.out.printf("  %-12s  %+6.1f%%%n", e.getKey(), pct);
+                 });
+     }
+        
+        // NEW: weekday vs weekend
+        Map<String, Double> avgWeek = TrafficAnalysis.averageWeekdayVsWeekend(rows);
+        TrafficCharts.showWeekdayVsWeekend(avgWeek);
+    }
+    
+    
+}
+
