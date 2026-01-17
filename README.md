@@ -39,6 +39,8 @@ and software engineering practices relevant to applied data analysis.
 
 ### 1. Hourly Traffic Volume Patterns
 
+![Hourly Traffic Volume Curves](reports/hourly-curves.jpg)
+
 Analysis of average traffic volume by hour reveals a strong temporal structure.
 
 **Findings:**
@@ -53,6 +55,8 @@ on interstate traffic demand.
 
 ### 2. Weekday vs Weekend Traffic Behavior
 
+![Weekday vs Weekend Traffic Volume](reports/weekday_vs_weekend.jpg)
+
 Line-curve comparisons highlight clear differences between weekday and weekend travel.
 
 **Findings:**
@@ -66,6 +70,8 @@ while discretionary travel dominates weekends.
 ---
 
 ### 3. Weather Context and Traffic Volume
+
+![Average Traffic Volume by Weather Condition](reports/weather-impact.jpg)
 
 Traffic volume was aggregated by primary weather condition.
 
