@@ -311,6 +311,13 @@ figure.cmatrix-figure{
   figure.center-on-large.large-figure img{
     max-width: 100%;
   }
+
+  /* ADDED: make cmatrix responsive on mobile too */
+  img.cmatrix{
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
 }
 
 /* Math blocks (nice-looking) */
@@ -324,5 +331,6 @@ figure.cmatrix-figure{
   overflow-x: auto;
 }
 .figure img { cursor: zoom-in; }
+
 
 
