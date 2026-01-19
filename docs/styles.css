@@ -22,20 +22,35 @@ body{
   color:var(--text);
 }
 
-.container{
-  width:min(1100px, 92vw);
-  margin:0 auto;
-}
-
 /* ---------- NAV ---------- */
 
-.nav-links a{
-  color:var(--muted);
-  text-decoration:none;
+.nav{
+  position:sticky;
+  top:0;
+  z-index:50;
+  backdrop-filter: blur(10px);
+  background: rgba(7,16,33,.55);
+  border-bottom:1px solid var(--border);
 }
 
-/* make top links look like consistent buttons */
-.nav-links a.btn-link{
+.inner{
+  width:min(1100px, 92vw);
+  margin:0 auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:12px 0;
+}
+
+.links{
+  display:flex;
+  gap:14px;
+  align-items:center;
+  flex-wrap:wrap;
+}
+
+/* unified nav buttons (buttons + links) */
+.pill{
   display:inline-flex;
   align-items:center;
   gap:8px;
@@ -44,86 +59,79 @@ body{
   border:1px solid rgba(122,162,255,.35);
   background: rgba(122,162,255,.12);
   color:var(--text);
+  text-decoration:none;
+  font:inherit;
   line-height:1;
 }
 
-.nav-links a.btn-link:hover{
-  color:var(--text);
+.pill:hover{
   filter: brightness(1.05);
 }
 
+button.pill{
+  cursor:pointer;
+  appearance:none;
+}
 
 /* ---------- HERO ---------- */
 
 .hero{
-  padding:26px 0 6px;
+  padding:32px 0 20px;
+  text-align:center;
 }
 
-.hero-inner{
-  text-align:center;
-  padding:18px 0 8px;
+.kicker{
+  color:var(--accent);
+  font-size:.85rem;
+  letter-spacing:.06em;
+  margin-bottom:8px;
 }
 
 h1{
   margin:8px auto 10px;
-  font-size: clamp(24px, 2.7vw, 40px);
+  font-size: clamp(26px, 3vw, 42px);
   line-height:1.15;
-  max-width:30ch;
+  max-width:32ch;
 }
 
-.subtitle{
+.sub{
   max-width:75ch;
   margin:0 auto;
   color:var(--muted);
+  font-size:1.02rem;
 }
 
-/* ---------- LAYOUT ---------- */
+/* ---------- FIGURES ---------- */
 
-.grid-2{
-  display:grid;
-  grid-template-columns: 1fr 1fr;
-  gap:14px;
+.wrap{
+  width:min(1100px, 92vw);
+  margin:0 auto;
 }
 
-.grid{
+.figgrid{
   display:grid;
   grid-template-columns: repeat(2, 1fr);
   gap:14px;
   margin-top:12px;
 }
 
-.tri-grid{
-  display:grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap:14px;
-  margin-top:12px;
+@media (max-width: 980px){
+  .figgrid{ grid-template-columns:1fr; }
 }
 
-.stack{
+.figure{
   display:flex;
   flex-direction:column;
-  gap:14px;
+  align-items:center;
+  text-align:center;
 }
 
-/* ---------- CARDS ---------- */
-
-.card{
-  background: linear-gradient(180deg, rgba(13,25,51,.96), rgba(11,21,46,.96));
-  border:1px solid var(--border);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  padding:14px;
-}
-
-.card h2{ margin:0; font-size:1.1rem; }
-.card p{ color:var(--muted); }
-
-/* ---------- IMAGES (UNIFIED SIZE) ---------- */
-
-.img{
-  width: 100%;
-  max-width: 720px;   /* unified size for every chart */
-  height: auto;
+/* unified image sizing */
+.figure img,
+img.img{
+  width:100%;
+  max-width:720px;
+  height:auto;
   display:block;
   margin:0 auto;
 
@@ -134,49 +142,10 @@ h1{
 
 .clickable{ cursor: zoom-in; }
 
-/* ---------- TABLES ---------- */
-
-.table-wrap{
-  overflow-x:auto;
-  border:1px solid var(--border);
-  border-radius:12px;
-}
-
-table{
-  width:100%;
-  border-collapse:collapse;
-  min-width:720px;
-}
-
-th, td{
-  padding:10px 12px;
-  border-bottom:1px solid var(--border);
-  color:var(--muted);
-}
-
-th{
-  color:var(--text);
-  font-weight:600;
-}
-
 /* ---------- FOOTER ---------- */
 
 .footer{
   text-align:center;
   padding:22px 0 34px;
   color: rgba(234,240,255,.65);
-}
-
-/* ---------- RESPONSIVE ---------- */
-
-@media (max-width: 980px){
-  .grid-2,
-  .grid,
-  .tri-grid{
-    grid-template-columns:1fr;
-  }
-
-  table{
-    min-width:620px;
-  }
 }
