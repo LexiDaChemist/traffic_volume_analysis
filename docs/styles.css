@@ -332,5 +332,19 @@ figure.cmatrix-figure{
 }
 .figure img { cursor: zoom-in; }
 
+/* ===== Normalize analysis image sizes ===== */
+
+/* All main analysis figures (traffic charts, heatmaps, etc.) */
+figure .img{
+  max-height: 420px;
+  object-fit: contain;
+}
+
+/* Slightly larger on tablet/desktop */
+@media (min-width: 768px){
+  figure .img{
+    max-height: 460px;
+  }
+}
 
 
