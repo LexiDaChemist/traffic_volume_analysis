@@ -24,6 +24,7 @@
         <button class="pill toggle" type="button" data-target="applications-panel" aria-expanded="false">
           Real-World Applications
         </button>
+
         <button class="pill toggle" type="button" data-target="discussion-panel" aria-expanded="false">
           Discussion
         </button>
@@ -48,46 +49,56 @@
       <p class="sub">
         This project analyzes hourly interstate traffic volume using the
         <em>Metro Interstate Traffic Volume</em> dataset to uncover repeatable patterns in human mobility.
-        The figures highlight how demand shifts across the day, differs between weekdays and weekends,
-        and responds to changing weather conditions. The emphasis is interpretability—transforming raw
-        time-series data into visual evidence that supports planning and infrastructure decisions.
-        Results are descriptive and data-driven, providing a clear baseline of “normal” traffic behavior.
+        The figures show how demand changes across the day, differs between weekdays and weekends,
+        and responds to weather conditions. The emphasis is interpretability—turning raw data into
+        visual evidence that supports infrastructure planning and decision-making.
       </p>
     </header>
 
     <!-- Figures -->
     <section class="section" id="figures">
       <h2>Figures</h2>
-      <p class="lead">Click any figure to open the full-resolution image.</p>
 
       <div class="figgrid">
         <figure class="figure">
           <a href="images/hourly-curves.jpg" target="_blank" rel="noopener">
-            <img class="img clickable" src="images/hourly-curves.jpg" alt="Hourly traffic volume curves comparing weekday vs weekend" />
+            <img class="clickable" src="images/hourly-curves.jpg" alt="Hourly traffic volume curves" />
           </a>
-          <figcaption><strong>Figure 1.</strong> Hourly traffic volume curves (weekday vs weekend).</figcaption>
+          <figcaption>Figure 1. Hourly traffic volume (weekday vs weekend).</figcaption>
         </figure>
 
         <figure class="figure">
           <a href="images/traffic-volume.jpg" target="_blank" rel="noopener">
-            <img class="img clickable" src="images/traffic-volume.jpg" alt="Average traffic volume by hour of day" />
+            <img class="clickable" src="images/traffic-volume.jpg" alt="Average traffic volume by hour" />
           </a>
-          <figcaption><strong>Figure 2.</strong> Average traffic volume by hour of day.</figcaption>
+          <figcaption>Figure 2. Average traffic volume by hour.</figcaption>
         </figure>
+      </div>
+    </section>
 
-        <figure class="figure">
-          <a href="images/weather-impact.jpg" target="_blank" rel="noopener">
-            <img class="img clickable" src="images/weather-impact.jpg" alt="Average traffic volume by weather condition" />
-          </a>
-          <figcaption><strong>Figure 3.</strong> Average traffic volume by weather condition.</figcaption>
-        </figure>
+    <!-- Real-World Applications -->
+    <section class="section" id="applications">
+      <h2>Real-World Applications</h2>
+      <div class="panel collapsible" id="applications-panel" hidden>
+        <p>Content goes here.</p>
+      </div>
+      <div class="note">Use the top buttons to show or hide this section.</div>
+    </section>
 
-        <figure class="figure">
-          <a href="images/weekday-vs-weekend.jpg" target="_blank" rel="noopener">
-            <img class="img clickable" src="images/weekday-vs-weekend.jpg" alt="Weekday versus weekend average traffic volume" />
-          </a>
-          <figcaption><strong>Figure 4.</strong> Weekday vs weekend traffic volume.</figcaption>
-        </figure>
+    <!-- Discussion -->
+    <section class="section" id="discussion">
+      <h2>Discussion</h2>
+      <div class="panel collapsible" id="discussion-panel" hidden>
+        <p>Content goes here.</p>
+      </div>
+      <div class="note">Use the top buttons to show or hide this section.</div>
+    </section>
+
+    <!-- References -->
+    <section class="section" id="references">
+      <h2>References</h2>
+      <div class="panel">
+        <p>Reference list here.</p>
       </div>
     </section>
 
@@ -98,6 +109,21 @@
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    document.querySelectorAll(".toggle[data-target]").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const panel = document.getElementById(btn.dataset.target);
+        if (!panel) return;
+
+        const isOpen = !panel.hasAttribute("hidden");
+        panel.toggleAttribute("hidden", isOpen);
+        btn.setAttribute("aria-expanded", String(!isOpen));
+
+        if (!isOpen) {
+          panel.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      });
+    });
   </script>
 </body>
 </html>
